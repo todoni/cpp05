@@ -4,9 +4,11 @@
 # include "Form.hpp"
 # include <string>
 # include <iostream>
+# include <cstdlib>
+# include <ctime>
 
 # define RB_SIGN_GRADE 72
-# define SB_EXEC_GRADE 45
+# define RB_EXEC_GRADE 45
 
 class	RobotomyRequestForm : public Form
 {
@@ -19,7 +21,7 @@ class	RobotomyRequestForm : public Form
 		~RobotomyRequestForm();
 		RobotomyRequestForm&	operator=(const RobotomyRequestForm& ref);
 
-		virtual void	execute(const Bureaucrat& executor);
+		virtual void	execute(const Bureaucrat& executor) const;
 };
 
 #endif

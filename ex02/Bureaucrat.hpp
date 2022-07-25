@@ -32,6 +32,9 @@ public:
 
 	void				signForm(Form& form);
 
+	void				executeForm(const Form& form);
+
+
 class GradeTooHighException : virtual public std::exception{
 
 public:

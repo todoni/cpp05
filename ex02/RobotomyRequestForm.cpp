@@ -1,56 +1,42 @@
-#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm()
+RobotomyRequestForm::RobotomyRequestForm()
 	:Form()
 {
 
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(const std::string& ref)
-	:Form(ref, SH_SIGN_GRADE, SH_EXEC_GRADE)
+RobotomyRequestForm::RobotomyRequestForm(const std::string& ref)
+	:Form(ref, RB_SIGN_GRADE, RB_EXEC_GRADE)
 {
 
 }
 
-ShrubberyCreationForm::~ShrubberyCreationForm()
+RobotomyRequestForm::~RobotomyRequestForm()
 {
 
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& ref)
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& ref)
 	:Form(ref)
 {
 
 }
 
-ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationForm& ref)
+RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& ref)
 {
 	if (this != &ref)
 		Form::operator=(ref);
 	return (*this);
 }
 
-void	ShrubberyCreationForm::execute(const Bureaucrat &executor)
+void	RobotomyRequestForm::execute(const Bureaucrat &executor) const
 {
-	std::ofstream	out;
-	std::string filename("");
-
-	filename = this->getName() + "_shrubbery";
-	out.open(filename);
-	if (out.fail())
-		;
-	
-	std::string shrubbery = 
- "	              @@@@@@@,\n"
- "       ,,,.   ,@@@@@@/@@,  .oo8888o.\n"
- "    ,&%%&%&&%,@@@@@/@@@@@@,8888\\88/8o\n"
- "   ,%&\\%&&%&&%,@@@\\@@@/@@@88\\88888/88'\n"
- "   %&&%&%&/%&&%@@\\@@/ /@@@88888\\88888'\n"
- "   %&&%/ %&%%&&@@\\ V /@@' `88\\8 `/88'\n"
- "   `&%\\ ` /%&'    |.|        \\ '|8'\n"
- "       |o|        | |         | |\n"
- "       |.|        | |         | |\n"
- "jgs \\\\/ ._\\//_/__/  ,\\_//__\\\\/.  \\_//__/_\n";
-	out << shrubbery;
-	out.close();
+	checkPrivilege(executor);
+	std::cout << "dudududududu dudu dududududuu dudu" << std::endl;
+	std::srand(std::time(NULL));
+	if (rand() % 2)
+		std::cout << "........................... " << this->getName() << " has successfully robotomized." << std::endl;
+	else
+		std::cout << ".............. robotomy failed with " <<  this->getName() << std::endl;
 }

@@ -44,6 +44,16 @@ void	Form::beSigned(const Bureaucrat& bureaucrat)
 	//*(const_cast<bool*>(&this->isSigned)) = true;
 }
 
+void	Form::checkPrivilege(const Bureaucrat& executor) const
+{
+	if (!this->isSigned)
+		//throw "not signed";
+	if (this->getSignGrade() < executor.getGrade())
+		throw GradeTooHighException();
+	if (this->getExecuteGrade() < executor.getGrade())
+		throw GradeTooLowException();
+}
+
 const std::string&	Form::getName(void) const
 {
 	return (this->name);

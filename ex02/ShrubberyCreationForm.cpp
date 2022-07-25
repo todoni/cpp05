@@ -30,18 +30,18 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationF
 	return (*this);
 }
 
-void	ShrubberyCreationForm::execute(const Bureaucrat &executor)
+void	ShrubberyCreationForm::execute(const Bureaucrat& executor) const
 {
+	checkPrivilege(executor);
 	std::ofstream	out;
 	std::string filename("");
-
+	
+	out.exceptions(std::ofstream::failbit | std::ofstream::badbit);
 	filename = this->getName() + "_shrubbery";
 	out.open(filename);
-	if (out.fail())
-		;
 	
 	std::string shrubbery = 
- "	              @@@@@@@,\n"
+ "	        @@@@@@@,\n"
  "       ,,,.   ,@@@@@@/@@,  .oo8888o.\n"
  "    ,&%%&%&&%,@@@@@/@@@@@@,8888\\88/8o\n"
  "   ,%&\\%&&%&&%,@@@\\@@@/@@@88\\88888/88'\n"
