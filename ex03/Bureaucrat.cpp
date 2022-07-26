@@ -23,7 +23,10 @@ Bureaucrat::~Bureaucrat()
 Bureaucrat::Bureaucrat(const Bureaucrat& ref)
 	:name(ref.getName()), grade(ref.getGrade())
 {
-
+	if (this->grade < GRADE_HIGHEST) 
+		throw GradeTooHighException();
+	if (this->grade > GRADE_LOWEST)
+		throw GradeTooLowException();
 }
 
 Bureaucrat&	Bureaucrat::operator=(const Bureaucrat& ref)

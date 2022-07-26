@@ -1,3 +1,4 @@
+#include "Bureaucrat.hpp"
 #include "Form.hpp"
 
 Form::Form()
@@ -18,10 +19,7 @@ Form::Form(std::string name, const int sg, const int eg)
 Form::Form(const Form& ref)
 	:name(ref.getName()), isSigned(false), signGrade(ref.getSignGrade()), executeGrade(ref.getExecuteGrade())
 {
-	if (this->signGrade < GRADE_HIGHEST || this->executeGrade < GRADE_HIGHEST)
-		throw GradeTooHighException();
-	if (this->signGrade > GRADE_LOWEST || this->executeGrade > GRADE_LOWEST)
-		throw GradeTooLowException();
+	
 }
 
 Form&	Form::operator=(const Form& ref)
@@ -41,25 +39,24 @@ void	Form::beSigned(const Bureaucrat& bureaucrat)
 	if (bureaucrat.getGrade() > this->signGrade)
 		throw GradeTooHighException();
 	this->isSigned = true;
-	//*(const_cast<bool*>(&this->isSigned)) = true;
 }
 
-const std::string&	Form::getName(void) const
+std::string	Form::getName(void) const
 {
 	return (this->name);
 }
 
-const bool&	Form::getIsSigned(void) const
+bool	Form::getIsSigned(void) const
 {
 	return (this->isSigned);
 }
 
-const int&		Form::getSignGrade(void) const
+int		Form::getSignGrade(void) const
 {
 	return (this->signGrade);
 }
 
-const int&		Form::getExecuteGrade(void) const
+int		Form::getExecuteGrade(void) const
 {
 	return (this->executeGrade);
 }

@@ -4,9 +4,12 @@
 # include <string>
 # include <iostream>
 # include <exception>
+# include <fstream>
 
 # define GRADE_LOWEST	150
 # define GRADE_HIGHEST	1
+
+class	Form;
 
 class	Bureaucrat{
 
@@ -17,7 +20,7 @@ private:
 	Bureaucrat();
 public:
 	
-	Bureaucrat(std::string name, int grade);
+	Bureaucrat(const std::string& name, int grade);
 	~Bureaucrat();
 	Bureaucrat(const Bureaucrat& ref);
 	Bureaucrat&	operator=(const Bureaucrat& ref);
@@ -26,6 +29,11 @@ public:
 	int			getGrade(void) const;
 	void		increaseGrade(void);
 	void		decreaseGrade(void);
+
+	void		signForm(Form& form);
+
+	void		executeForm(const Form& form);
+
 
 class GradeTooHighException : virtual public std::exception{
 

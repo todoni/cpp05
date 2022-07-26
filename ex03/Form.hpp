@@ -74,6 +74,18 @@ public:
 	}
 };
 
+class FormNotDefinedException : virtual public std::exception{
+
+public:
+	explicit FormNotDefinedException() {}
+
+	virtual ~FormNotDefinedException() throw() {}
+
+	virtual const char*	what() const throw () {
+		return ("Form Not Defined!");
+	}
+};
+
 };
 
 std::ostream&	operator<<(std::ostream& out, const Form& form);

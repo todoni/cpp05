@@ -1,7 +1,6 @@
 #include "PresidentialPardonForm.hpp"
 
 PresidentialPardonForm::PresidentialPardonForm()
-	:Form()
 {
 
 }

@@ -4,7 +4,6 @@
 # include <string>
 # include <iostream>
 # include <exception>
-# include "Bureaucrat.hpp"
 
 # define GRADE_LOWEST	150
 # define GRADE_HIGHEST	1
@@ -19,18 +18,18 @@ private:
 	const int 			signGrade;
 	const int			executeGrade;
 
-	Form();
 public:
 	
+	Form();
 	Form(std::string name, const int signGrade, const int executeGrade);
 	~Form();
 	Form(const Form& ref);
 	Form&	operator=(const Form& ref);
 
-	const std::string&	getName(void) const;
-	const bool&			getIsSigned(void) const;
-	const int&			getSignGrade(void) const;
-	const int&			getExecuteGrade(void) const;
+	std::string			getName(void) const;
+	bool				getIsSigned(void) const;
+	int					getSignGrade(void) const;
+	int					getExecuteGrade(void) const;
 
 	void				beSigned(const Bureaucrat& bureaucrat);
 

@@ -1,4 +1,5 @@
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 Bureaucrat::Bureaucrat()
 {
@@ -38,7 +39,7 @@ Bureaucrat&	Bureaucrat::operator=(const Bureaucrat& ref)
 	return (*this);
 }
 
-const std::string	Bureaucrat::getName(void) const
+std::string	Bureaucrat::getName(void) const
 {
 	return (this->name);
 }

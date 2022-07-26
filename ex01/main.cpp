@@ -3,34 +3,23 @@
 
 int	main()
 {
-	try
-	{
 		Bureaucrat	b("sohan", 1);
 		Form		f("form", 1, 1);
+		std::cout << f << std::endl;
 		b.signForm(f);
 		std::cout << f << std::endl;
-	}
-	catch (std::exception& e)
-	{
-		std::cout << e.what() << std::endl;
-	}
 
-	try
-	{
-		Bureaucrat	b("sohan", 5);
-		Form		f("form", 1, 1);
-		b.signForm(f);
-		b.increaseGrade();
-		b.increaseGrade();
-		b.increaseGrade();
-		b.increaseGrade();
+		Bureaucrat	b2("sohan2", 5);
+		Form		f2("form2", 1, 1);
+		b2.signForm(f2);
+		b2.increaseGrade();
+		b2.increaseGrade();
+		b2.increaseGrade();
+		b2.increaseGrade();
 		//b.increaseGrade();
-		b.signForm(f);
-
-	}
-	catch (std::exception& e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-	std::cout << "here" << std::endl;
+		b2.signForm(f2);
+		b2.decreaseGrade();
+		b2.signForm(f2);
+		Form	f3;
+		std::cout << f3 << std::endl;
 }

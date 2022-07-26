@@ -22,11 +22,6 @@ Bureaucrat::~Bureaucrat()
 Bureaucrat::Bureaucrat(const Bureaucrat& ref)
 	:name(ref.getName()), grade(ref.getGrade())
 {
-	std::cout << "실행됨?" << std::endl;
-	if (this->grade < GRADE_HIGHEST) 
-		throw GradeTooHighException();
-	if (this->grade > GRADE_LOWEST)
-		throw GradeTooLowException();
 }
 
 Bureaucrat&	Bureaucrat::operator=(const Bureaucrat& ref)
@@ -39,7 +34,7 @@ Bureaucrat&	Bureaucrat::operator=(const Bureaucrat& ref)
 	return (*this);
 }
 
-const std::string	Bureaucrat::getName(void) const
+std::string	Bureaucrat::getName(void) const
 {
 	return (this->name);
 }

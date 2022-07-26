@@ -10,10 +10,7 @@ Form::Form()
 Form::Form(const std::string& name, const std::string& target, const int sg, const int eg)
 	:name(name), target(target), isSigned(false), signGrade(sg), executeGrade(eg)
 {
-	if (this->signGrade < GRADE_HIGHEST || this->executeGrade < GRADE_HIGHEST)
-		throw GradeTooHighException();
-	if (this->signGrade > GRADE_LOWEST || this->executeGrade > GRADE_LOWEST)
-		throw GradeTooLowException();
+
 }
 
 Form::Form(const Form& ref)
